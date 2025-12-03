@@ -1,371 +1,1558 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shubam Gupta — AI + Hardware Portfolio</title>
-  <meta name="description" content="Portfolio of Shubam Gupta — MTS & AI/ML Specialist" />
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <style>
-    :root {
-      --bg: #0b0f14;
-      --card: #0f172a; /* slate-900 */
-      --fg: #e5e7eb;   /* gray-200 */
-      --muted: #9ca3af;/* gray-400 */
-      --cyan: #22d3ee; /* cyan-400 */
-      --green: #22c55e;/* green-500 */
-    }
-    body { background: var(--bg); color: var(--fg); }
-    /* Animated AI circuit background */
-    .ai-bg svg path {
-      stroke-dasharray: 6 10;
-      animation: dash 12s linear infinite;
-    }
-    @keyframes dash {
-      to { stroke-dashoffset: -1000; }
-    }
-    /* Glass/PCB card look */
-    .pcb-card { background: linear-gradient(180deg, rgba(15,23,42,.9), rgba(15,23,42,.7)); border:1px solid rgba(148,163,184,.25); backdrop-filter: blur(6px); }
-    .chip { border:1px solid rgba(148,163,184,.25); }
-    .section { scroll-margin-top: 80px; }
-  </style>
-</head>
-<body class="antialiased selection:bg-cyan-500/20 selection:text-white">
-  <!-- Animated Background -->
-  <div class="ai-bg pointer-events-none fixed inset-0 -z-10 opacity-60">
-    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.6" />
-          <stop offset="100%" stop-color="#22c55e" stop-opacity="0.6" />
-        </linearGradient>
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <g stroke="url(#circuitGradient)" stroke-width="1.25" fill="none" filter="url(#glow)">
-        <path d="M20 80 H320 V180 H680 V340 H1120"/>
-        <path d="M60 520 H440 V300 H820 V160 H1180"/>
-        <path d="M120 220 V640 H880 V520 H1260"/>
-        <path d="M0 720 H500 V420 H1000"/>
-      </g>
-    </svg>
-  </div>
-
-  <!-- Header / Nav -->
-  <header class="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-slate-900/60 bg-slate-900/80 border-b border-slate-700/40">
-    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-      <a href="#home" class="text-cyan-300 font-semibold tracking-wide">SG • AI × Hardware</a>
-      <nav class="hidden md:flex items-center gap-6 text-sm text-gray-300">
-        <a class="hover:text-white" href="#about">About</a>
-        <a class="hover:text-white" href="#skills">Skills</a>
-        <a class="hover:text-white" href="#stack">Tech Stack</a>
-        <a class="hover:text-white" href="#experience">Experience</a>
-        <a class="hover:text-white" href="#patents">Patents</a>
-        <a class="hover:text-white" href="#awards">Awards</a>
-        <a class="hover:text-white" href="#contact">Contact</a>
-      </nav>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shubam Gupta — AI + Hardware Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Shubam Gupta — MTS & AI/ML Specialist"
+    />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      :root {
+        --bg: #0b0f14;
+        --card: #0f172a; /* slate-900 */
+        --fg: #e5e7eb; /* gray-200 */
+        --muted: #9ca3af; /* gray-400 */
+        --cyan: #22d3ee; /* cyan-400 */
+        --green: #22c55e; /* green-500 */
+      }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+      }
+      /* Animated AI circuit background */
+      .ai-bg svg path {
+        stroke-dasharray: 6 10;
+        animation: dash 12s linear infinite;
+      }
+      @keyframes dash {
+        to {
+          stroke-dashoffset: -1000;
+        }
+      }
+      /* Glass/PCB card look */
+      .pcb-card {
+        background: linear-gradient(
+          180deg,
+          rgba(15, 23, 42, 0.9),
+          rgba(15, 23, 42, 0.7)
+        );
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        backdrop-filter: blur(6px);
+      }
+      .chip {
+        border: 1px solid rgba(148, 163, 184, 0.25);
+      }
+      .section {
+        scroll-margin-top: 80px;
+      }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-cyan-500/20 selection:text-white">
+    <!-- Animated Background -->
+    <div class="ai-bg pointer-events-none fixed inset-0 -z-10 opacity-60">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient
+            id="circuitGradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
+            <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.6" />
+            <stop offset="100%" stop-color="#22c55e" stop-opacity="0.6" />
+          </linearGradient>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <g
+          stroke="url(#circuitGradient)"
+          stroke-width="1.25"
+          fill="none"
+          filter="url(#glow)"
+        >
+          <path d="M20 80 H320 V180 H680 V340 H1120" />
+          <path d="M60 520 H440 V300 H820 V160 H1180" />
+          <path d="M120 220 V640 H880 V520 H1260" />
+          <path d="M0 720 H500 V420 H1000" />
+        </g>
+      </svg>
     </div>
-  </header>
 
-  <!-- Hero -->
-  <section id="home" class="section relative">
-    <div class="max-w-7xl mx-auto px-6 py-24 md:py-32 text-center">
-      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-cyan-400">Shubam Gupta</h1>
-      <p class="mt-4 text-lg md:text-xl text-gray-300">Member of Technical Staff @ AMD • AI/ML Specialist • Platform Architect</p>
-      <div class="mt-6 flex items-center justify-center gap-4">
-        <a href="https://github.com/shubamgupta8" target="_blank" class="chip inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm hover:bg-white/5">
-          <i data-lucide="github" class="w-5 h-5"></i> GitHub
-        </a>
-        <a href="https://linkedin.com/in/shubamgupta8" target="_blank" class="chip inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm hover:bg-white/5">
-          <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
-        </a>
-        <a href="mailto:shubamgupta8@gmail.com" class="chip inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm hover:bg-white/5">
-          <i data-lucide="mail" class="w-5 h-5"></i> Contact
-        </a>
+    <!-- Header / Nav -->
+    <header
+      class="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-slate-900/60 bg-slate-900/80 border-b border-slate-700/40"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between"
+      >
+        <a href="#home" class="text-cyan-300 font-semibold tracking-wide">Shubam Gupta • AI & Cloud Architect</a>
+        <nav class="hidden md:flex items-center gap-6 text-sm text-gray-300">
+          <a class="hover:text-white" href="#about">About</a>
+          <a class="hover:text-white" href="#skills">Skills</a>
+          <a class="hover:text-white" href="#stack">Tech Stack</a>
+          <a class="hover:text-white" href="#experience">Experience</a>
+          <a class="hover:text-white" href="#patents">Patents</a>
+          <a class="hover:text-white" href="#awards">Awards</a>
+          <a class="hover:text-white" href="#contact">Contact</a>
+        </nav>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="max-w-4xl mx-auto px-6 py-16">
-      <h2 class="text-3xl font-semibold text-cyan-400 mb-4">About Me</h2>
-      <p class="text-gray-300 leading-relaxed">
-        Innovative technology leader with 8+ years of experience building AI-driven platforms, cloud infrastructure, and automation solutions. Currently at AMD, spearheading next-gen validation workflows, AI orchestration engines, and edge compute infrastructure.
+    <!-- Hero -->
+    <section id="home" class="section relative">
+      <div class="max-w-7xl mx-auto px-6 py-24 md:py-32 text-center">
+        <h1
+          class="text-4xl md:text-6xl font-extrabold tracking-tight text-cyan-400"
+        >
+          Shubam Gupta
+        </h1>
+        <p class="mt-4 text-lg md:text-xl text-gray-300">
+          Member of Technical Staff @ AMD • AI/ML Specialist • Platform
+          Architect
+        </p>
+        <div class="mt-6 flex items-center justify-center gap-4">
+          <a
+            href="https://github.com/shubamgupta8"
+            target="_blank"
+            class="chip inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm hover:bg-white/5"
+          >
+            <i data-lucide="github" class="w-5 h-5"></i> GitHub
+          </a>
+          <a
+            href="https://linkedin.com/in/shubamgupta8"
+            target="_blank"
+            class="chip inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm hover:bg-white/5"
+          >
+            <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
+          </a>
+          <a
+            href="mailto:shubamgupta8@gmail.com"
+            class="chip inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm hover:bg-white/5"
+          >
+            <i data-lucide="mail" class="w-5 h-5"></i> Contact
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+<section id="about" class="section">
+  <div class="max-w-5xl mx-auto px-6 py-20">
+    <h2 class="text-3xl font-semibold text-cyan-400 mb-6">About Me</h2>
+    
+    <div class="pcb-card rounded-2xl p-8">
+      <p class="text-xl text-gray-200 leading-relaxed mb-6">
+        <span class="text-cyan-300 font-semibold">Technology leader</span> with <span class="text-green-400 font-semibold">9+ years</span> transforming complex challenges into scalable AI-powered solutions that deliver measurable business impact.
       </p>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="section">
-    <div class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-3xl font-semibold text-cyan-400 mb-8">Core Skills</h2>
-      <!-- Static skill chips (no JS frameworks) -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-2">
-        <div class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"><span class="text-green-400 font-medium">AI/ML Engineering</span></div>
-        <div class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"><span class="text-green-400 font-medium">Platform Architecture</span></div>
-        <div class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"><span class="text-green-400 font-medium">Cloud (AWS/Azure)</span></div>
-        <div class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"><span class="text-green-400 font-medium">Edge Compute</span></div>
-        <div class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"><span class="text-green-400 font-medium">FastAPI / Flask / Django</span></div>
-        <div class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"><span class="text-green-400 font-medium">Kafka / EventHub</span></div>
-        <div class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"><span class="text-green-400 font-medium">Kubernetes / Docker</span></div>
-        <div class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"><span class="text-green-400 font-medium">Generative AI & LLMs</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tech Stack -->
-  <section id="stack" class="section">
-    <div class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-3xl font-semibold text-cyan-400 mb-8">Tech Stack</h2>
-      <div class="grid grid-cols-3 md:grid-cols-6 gap-6">
-        <!-- Each card uses Devicon SVGs -->
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-          <p class="text-sm text-gray-300">Python</p>
+      
+      <div class="grid md:grid-cols-3 gap-6 my-8">
+        <div class="text-center p-4 bg-slate-800/50 rounded-xl">
+          <div class="text-3xl font-bold text-cyan-400">6.25×</div>
+          <div class="text-sm text-gray-400 mt-1">Capacity Improvement</div>
         </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" />
-          <p class="text-sm text-gray-300">FastAPI</p>
+        <div class="text-center p-4 bg-slate-800/50 rounded-xl">
+          <div class="text-3xl font-bold text-green-400">2×</div>
+          <div class="text-sm text-gray-400 mt-1">System Utilization Gains</div>
         </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" />
-          <p class="text-sm text-gray-300">Kubernetes</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
-          <p class="text-sm text-gray-300">Docker</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg" alt="Kafka" />
-          <p class="text-sm text-gray-300">Kafka</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" />
-          <p class="text-sm text-gray-300">TensorFlow</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJS" />
-          <p class="text-sm text-gray-300">NodeJS</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" />
-          <p class="text-sm text-gray-300">AWS</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" />
-          <p class="text-sm text-gray-300">Azure</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" />
-          <p class="text-sm text-gray-300">Redis</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
-          <p class="text-sm text-gray-300">Java</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
-          <p class="text-sm text-gray-300">JavaScript</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg" alt="GitHub Actions" />
-          <p class="text-sm text-gray-300">GitHub Actions</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuredevops/azuredevops-original.svg" alt="Azure DevOps" />
-          <p class="text-sm text-gray-300">Azure DevOps</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" />
-          <p class="text-sm text-gray-300">Google ADK</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://res.cloudinary.com/dthpnue1d/image/upload/v1714548879/what_is_azure_ai_studio_bg_7f97ddd957.png" alt="Azure AI" />
-          <p class="text-sm text-gray-300">Azure AI</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://brandslogos.com/wp-content/uploads/images/elastic-elasticsearch-logo-vector.svg" alt="Elastic" />
-          <p class="text-sm text-gray-300">Elastic</p>
-        </div>
-        <div class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition">
-          <img class="h-12 w-12 mb-2" src="https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png" alt="Databricks" />
-          <p class="text-sm text-gray-300">Databricks</p>
+        <div class="text-center p-4 bg-slate-800/50 rounded-xl">
+          <div class="text-3xl font-bold text-yellow-400">87%</div>
+          <div class="text-sm text-gray-400 mt-1">Forecasting Accuracy</div>
         </div>
       </div>
+      
+      <p class="text-gray-300 leading-relaxed mb-4">
+        Currently at <span class="text-green-400 font-medium">AMD</span>, I'm spearheading the <span class="font-medium">PRISM AI platform</span> — architecting multi-agent systems that integrate <span class="text-cyan-300">RAG pipelines, vector databases, knowledge graphs, and conversational AI</span> to revolutionize hardware validation workflows across global edge infrastructure.
+      </p>
+      
+      <p class="text-gray-300 leading-relaxed">
+        My expertise spans <span class="text-cyan-300 font-medium">distributed event-driven architectures, cloud-native platforms (AWS/Azure), Kubernetes orchestration, and intelligent automation</span> — consistently delivering solutions that scale from proof-of-concept to production systems handling millions of events daily.
+      </p>
+      
+      <div class="mt-8 flex flex-wrap gap-3">
+        <span class="px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-sm text-cyan-300">AI/ML Platform Engineering</span>
+        <span class="px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full text-sm text-green-300">Distributed Systems</span>
+        <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm text-blue-300">Cloud Architecture</span>
+        <span class="px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-sm text-purple-300">Edge Computing</span>
+        <span class="px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-sm text-yellow-300">Technical Leadership</span>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Experience -->
-  <section id="experience" class="section">
-    <div class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-3xl font-semibold text-cyan-400 mb-8">Experience</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <article class="pcb-card rounded-2xl p-6">
-          <h3 class="text-xl font-semibold text-green-400">Member of Technical Staff @ AMD</h3>
-          <p class="text-sm text-gray-400">Sept 2023 – Present</p>
-          <ul class="list-disc list-inside text-gray-300 mt-3 space-y-1">
-            <li>Architected and scaled PRISM, expanding validation capacity from <strong>32 → 200+ concurrent runs</strong>; designed workflows for <strong>parallel execution, intelligent routing, and autonomous debug data collection (ADDC)</strong>.</li>
-            <li>Built and deployed <strong>edge clusters across global sites</strong> (Plano, Dallas, Austin, Penang, Bangalore), reducing <strong>latency by 40%</strong> and enabling cross-site parallel scaling for validation jobs.</li>
-            <li>Designed the <strong>Station Descriptor framework</strong> to standardize capability definitions (platform, CPU, RAM, peripherals) and implemented <strong>Station Search</strong> in PRISM for intelligent discovery (e.g., “Turin, 2P, RAM &gt;30GB”), replacing inefficient CLI workflows.</li>
-            <li>Implemented <strong>end-to-end deployment pipelines</strong> for APIs, libraries, and Kafka workers with automated quality gates, security scans, staging/production rollout, and rollback; improved release velocity and reliability.</li>
-            <li>Developed and optimized <strong>FastAPI services</strong> deployed on Azure Kubernetes; built <strong>Kafka workers</strong> (3–20 autoscaled pods) with a reusable <strong>caf_utils</strong> library for Kafka/EventHub integration and automated documentation.</li>
-            <li>Leading development of <strong>PRISM AI components</strong> including <strong>Conversational Agent, Log Intelligence, Triage, and Forecasting</strong>, enhancing automation and decision-making.</li>
-          </ul>
-        </article>
-        <article class="pcb-card rounded-2xl p-6">
-          <h3 class="text-xl font-semibold text-green-400">Assistant General Manager @ Infinity Learn</h3>
-          <p class="text-sm text-gray-400">July 2021 – Sept 2023</p>
-          <ul class="list-disc list-inside text-gray-300 mt-3 space-y-1">
-            <li>Orchestrated VISTA: Generative AI app using LLMs for NCERT queries.</li>
-            <li>Led ML team developing custom LLMs for Physics, Chemistry, Mathematics (IIT JEE).</li>
-            <li>Pioneered AI-driven auto-evaluation for Blockly coding with intelligent scoring.</li>
-          </ul>
-        </article>
-        <article class="pcb-card rounded-2xl p-6">
-          <h3 class="text-xl font-semibold text-green-400">Chief Architect @ WizKlub</h3>
-          <p class="text-sm text-gray-400">May 2021 – June 2023</p>
-          <ul class="list-disc list-inside text-gray-300 mt-3 space-y-1">
-            <li>Led 20+ engineering team delivering adaptive K-12 learning platform on AWS.</li>
-            <li>Designed end-to-end secure, scalable cloud architecture with DevSecOps integration.</li>
-          </ul>
-        </article>
-        <article class="pcb-card rounded-2xl p-6">
-          <h3 class="text-xl font-semibold text-green-400">Multiple Roles @ Cognizant</h3>
-          <p class="text-sm text-gray-400">Nov 2016 – May 2021</p>
-          
-          <div class="mt-4 space-y-3">
-            <div>
-              <h4 class="font-medium text-cyan-300">Data Scientist</h4>
-              <ul class="list-disc list-inside text-gray-300 text-sm mt-1 space-y-1">
-                <li>Developed automated data collection framework from enterprise systems & databases</li>
-                <li>Built ML-based sales forecasting models achieving 87% accuracy across regions</li>
-                <li>Created CNN-based text extraction from images with automated ML wrapper</li>
-                <li>Implemented employee attrition prediction models for workforce planning</li>
-              </ul>
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="max-w-7xl mx-auto px-6 py-16">
+        <h2 class="text-3xl font-semibold text-cyan-400 mb-8">
+          Core Skills & Expertise
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-2">
+          <!-- AI/ML Skills -->
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="brain"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >AI/ML Engineering</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >LLMs, RAG, GenAI</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="database"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >Vector Databases</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block">Qdrant, Milvus</span>
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="network"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >Knowledge Graphs</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Cosmos DB, Graph Analytics</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="message-square"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >Conversational AI</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Chatbots, NLP, Intent</span
+            >
+          </div>
+
+          <!-- Platform & Architecture -->
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="layers"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >Platform Architecture</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Distributed Systems</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="activity"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >Event-Driven Architecture</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Kafka, EventHub, Async</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="workflow"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >Workflow Orchestration</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Job Scheduling, Routing</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="globe"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block">Edge Computing</span>
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Global Infrastructure</span
+            >
+          </div>
+
+          <!-- Cloud & DevOps -->
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="cloud"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >Cloud Platforms</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >AWS, Azure, Multi-Cloud</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="container"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >Kubernetes & Docker</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Container Orchestration</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="git-branch"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >CI/CD Pipelines</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >GitHub Actions, Azure DevOps</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="shield-check"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block">DevSecOps</span>
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Security Scanning, OWASP</span
+            >
+          </div>
+
+          <!-- Backend & APIs -->
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i data-lucide="zap" class="w-8 h-8 text-cyan-400 mx-auto mb-2"></i>
+            <span class="text-green-400 font-medium block"
+              >FastAPI / Flask / Django</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >REST APIs, Microservices</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="server"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block">Spring Boot</span>
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Java, Enterprise Apps</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i data-lucide="cpu" class="w-8 h-8 text-cyan-400 mx-auto mb-2"></i>
+            <span class="text-green-400 font-medium block"
+              >Hardware Integration</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >BMC, IoT, Embedded</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="podcast"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block">Message Queues</span>
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Kafka, RabbitMQ, Streaming</span
+            >
+          </div>
+
+          <!-- Data & Analytics -->
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="bar-chart-3"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block">Data Analytics</span>
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Real-time Dashboards</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="database"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block">Databases</span>
+            <span class="text-xs text-gray-400 mt-1 block"
+              >SQL, NoSQL, Graph DBs</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="sparkles"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >Data Engineering</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >ETL, Spark, Databricks</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="line-chart"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >Monitoring & Observability</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >ELK, Grafana, Logging</span
+            >
+          </div>
+
+          <!-- Emerging Tech -->
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="blocks"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block">Blockchain</span>
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Ethereum, Smart Contracts</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="smartphone"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block">IoT Systems</span>
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Device Integration, Protocols</span
+            >
+          </div>
+
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="cube"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >AR/VR Development</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Unity, 3D Applications</span
+            >
+          </div>
+
+          <!-- Leadership -->
+          <div
+            class="pcb-card rounded-xl p-6 text-center hover:-translate-y-1 transition"
+          >
+            <i
+              data-lucide="users"
+              class="w-8 h-8 text-cyan-400 mx-auto mb-2"
+            ></i>
+            <span class="text-green-400 font-medium block"
+              >Technical Leadership</span
+            >
+            <span class="text-xs text-gray-400 mt-1 block"
+              >Team Management, Mentorship</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section id="stack" class="section">
+      <div class="max-w-7xl mx-auto px-6 py-16">
+        <h2 class="text-3xl font-semibold text-cyan-400 mb-8">Tech Stack</h2>
+
+        <!-- Carousel Container -->
+        <div class="relative">
+          <!-- Carousel Wrapper -->
+          <div class="overflow-hidden">
+            <div
+              id="techCarousel"
+              class="flex transition-transform duration-500 ease-in-out"
+            >
+              <!-- Slide 1 -->
+              <div class="min-w-full grid grid-cols-3 md:grid-cols-6 gap-6">
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                    alt="Python"
+                  />
+                  <p class="text-sm text-gray-300">Python</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
+                    alt="FastAPI"
+                  />
+                  <p class="text-sm text-gray-300">FastAPI</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
+                    alt="Kubernetes"
+                  />
+                  <p class="text-sm text-gray-300">Kubernetes</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                    alt="Docker"
+                  />
+                  <p class="text-sm text-gray-300">Docker</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg"
+                    alt="Kafka"
+                  />
+                  <p class="text-sm text-gray-300">Kafka</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+                    alt="TensorFlow"
+                  />
+                  <p class="text-sm text-gray-300">TensorFlow</p>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="min-w-full grid grid-cols-3 md:grid-cols-6 gap-6">
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                    alt="NodeJS"
+                  />
+                  <p class="text-sm text-gray-300">NodeJS</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+                    alt="AWS"
+                  />
+                  <p class="text-sm text-gray-300">AWS</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
+                    alt="Azure"
+                  />
+                  <p class="text-sm text-gray-300">Azure</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+                    alt="Redis"
+                  />
+                  <p class="text-sm text-gray-300">Redis</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                    alt="Java"
+                  />
+                  <p class="text-sm text-gray-300">Java</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript"
+                  />
+                  <p class="text-sm text-gray-300">JavaScript</p>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="min-w-full grid grid-cols-3 md:grid-cols-6 gap-6">
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg"
+                    alt="GitHub Actions"
+                  />
+                  <p class="text-sm text-gray-300">GitHub Actions</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuredevops/azuredevops-original.svg"
+                    alt="Azure DevOps"
+                  />
+                  <p class="text-sm text-gray-300">Azure DevOps</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+                    alt="Google Cloud"
+                  />
+                  <p class="text-sm text-gray-300">Google Cloud</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://res.cloudinary.com/dthpnue1d/image/upload/v1714548879/what_is_azure_ai_studio_bg_7f97ddd957.png"
+                    alt="Azure AI"
+                  />
+                  <p class="text-sm text-gray-300">Azure AI</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://brandslogos.com/wp-content/uploads/images/elastic-elasticsearch-logo-vector.svg"
+                    alt="Elastic"
+                  />
+                  <p class="text-sm text-gray-300">Elastic</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png"
+                    alt="Databricks"
+                  />
+                  <p class="text-sm text-gray-300">Databricks</p>
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="min-w-full grid grid-cols-3 md:grid-cols-6 gap-6">
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                    alt="PostgreSQL"
+                  />
+                  <p class="text-sm text-gray-300">PostgreSQL</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                    alt="MySQL"
+                  />
+                  <p class="text-sm text-gray-300">MySQL</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                    alt="MongoDB"
+                  />
+                  <p class="text-sm text-gray-300">MongoDB</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://milvus.io/images/milvus_logo.svg"
+                    alt="Milvus"
+                  />
+                  <p class="text-sm text-gray-300">Milvus</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://qdrant.tech/img/qdrant-logo.svg"
+                    alt="Qdrant"
+                  />
+                  <p class="text-sm text-gray-300">Qdrant</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://www.vectorlogo.zone/logos/rabbitmq/rabbitmq-icon.svg"
+                    alt="RabbitMQ"
+                  />
+                  <p class="text-sm text-gray-300">RabbitMQ</p>
+                </div>
+              </div>
+
+              <!-- Slide 5 -->
+              <div class="min-w-full grid grid-cols-3 md:grid-cols-6 gap-6">
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg"
+                    alt="Grafana"
+                  />
+                  <p class="text-sm text-gray-300">Grafana</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                    alt="Spring Boot"
+                  />
+                  <p class="text-sm text-gray-300">Spring Boot</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 240 41"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M61.5139 11.1569C60.4527 11.1569 59.4549 11.568 58.708 12.3148L55.6899 15.3248C54.8757 16.1368 54.4574 17.2643 54.5431 18.4202C54.5492 18.4833 54.5553 18.5464 54.5615 18.6115C54.6696 19.4988 55.0594 20.2986 55.6899 20.9254C56.1246 21.3589 56.6041 21.6337 57.1857 21.825C57.2163 22 57.2326 22.177 57.2326 22.3541C57.2326 23.1519 56.9225 23.9008 56.3592 24.4625L56.1735 24.6477C55.1655 24.3037 54.3247 23.8011 53.5656 23.044C52.5576 22.0386 51.8903 20.7687 51.6393 19.3747L51.6046 19.1813L51.4515 19.3055C51.3475 19.3889 51.2495 19.4785 51.1577 19.57L48.1396 22.58C46.5928 24.1226 46.5928 26.636 48.1396 28.1786C48.913 28.9499 49.9292 29.3366 50.9475 29.3366C51.9658 29.3366 52.98 28.9499 53.7534 28.1786L56.7715 25.1687C58.3183 23.626 58.3183 21.1147 56.7715 19.57C56.3592 19.159 55.8675 18.8496 55.3104 18.6502C55.2798 18.469 55.2634 18.2879 55.2634 18.1109C55.2634 17.2439 55.6063 16.4217 56.2348 15.7949C57.2449 16.1388 58.1407 16.6965 58.8978 17.4515C59.9038 18.4548 60.5691 19.7227 60.8241 21.1208L60.8588 21.3141L61.0119 21.19C61.116 21.1066 61.2139 21.017 61.3078 20.9234L64.3259 17.9135C65.8727 16.3708 65.8747 13.8575 64.3259 12.3148C63.577 11.568 62.5811 11.1569 61.518 11.1569H61.5139Z"
+                      fill="CurrentColor"
+                    ></path>
+                    <path
+                      d="M59.8966 0.148865H20.4063C9.15426 0.148865 0 9.27841 0 20.5001C0 31.7217 9.15426 40.8513 20.4063 40.8513H59.8966C71.1486 40.8513 80.3029 31.7217 80.3029 20.5001C80.3029 9.27841 71.1486 0.148865 59.8966 0.148865ZM40.4188 32.0555C39.7678 32.1898 39.0352 32.2142 38.5373 31.6953C38.3536 32.1165 37.9251 31.8947 37.5945 31.8398C37.5639 31.9252 37.5374 32.0005 37.5088 32.086C36.4089 32.1593 35.5845 31.04 35.0601 30.1954C34.0193 29.6337 32.8378 29.2918 31.7746 28.7036C31.7134 29.6724 31.9257 30.8731 31.0012 31.4979C30.9543 33.36 33.8255 31.7177 34.0887 33.1056C33.8847 33.128 33.6582 33.073 33.4949 33.2297C32.746 33.9563 31.8869 32.6803 31.0237 33.2074C29.8646 33.7894 29.7483 34.2656 28.3137 34.3857C28.2342 34.2656 28.2668 34.1862 28.3341 34.113C28.7382 33.6449 28.7668 33.0934 29.4565 32.8939C28.7464 32.782 28.1525 33.1728 27.5546 33.4821C26.7771 33.7996 26.7833 32.7657 25.5875 33.537C25.4548 33.4292 25.5181 33.3315 25.5936 33.2481C25.8976 32.8777 26.2976 32.8227 26.7486 32.8431C24.5304 31.6098 23.4856 34.3511 22.4612 32.9876C22.1531 33.069 22.0368 33.3457 21.8429 33.5411C21.6756 33.358 21.8021 33.1361 21.8103 32.9204C21.6103 32.8268 21.3572 32.782 21.4164 32.4625C21.0246 32.3302 20.7512 32.5622 20.4594 32.782C20.1961 32.5785 20.6369 32.2814 20.7185 32.0697C20.9532 31.6627 21.4878 31.9863 21.7592 31.6932C22.5306 31.2557 23.606 31.9659 24.4876 31.8459C25.1671 31.9313 26.0078 31.2353 25.667 30.5413C24.9406 29.6154 25.0691 28.4045 25.0528 27.2974C24.963 26.6522 23.4101 25.83 22.9612 25.134C22.4061 24.5072 21.9735 23.7807 21.5409 23.0664C19.9798 20.0523 20.4716 16.1795 18.5044 13.3812C17.6147 13.8717 16.4556 13.6397 15.6884 12.9823C15.2741 13.3588 15.2557 13.8513 15.2231 14.3744C14.2293 13.3833 14.3538 11.5109 15.1476 10.4079C15.4721 9.97239 15.8598 9.61421 16.2924 9.29876C16.3903 9.22754 16.423 9.15834 16.4209 9.04844C17.2066 5.52362 22.5653 6.20335 24.259 8.70044C25.4875 10.237 25.8589 12.27 27.2526 13.6967C29.1279 15.744 31.2645 17.5471 32.9949 19.7267C34.6315 21.7191 35.8008 24.0554 36.8211 26.4101C37.2374 27.1915 37.2415 28.1501 37.8578 28.8176C38.1618 29.2206 39.6474 30.3175 39.325 30.7062C39.5107 31.1091 40.8983 31.6647 40.4167 32.0555H40.4188ZM66.4449 20.032L63.4269 23.0419C62.6228 23.8438 61.6291 24.4421 60.5516 24.7697L60.4965 24.786L60.4761 24.8389C60.1251 25.7629 59.5925 26.5871 58.8905 27.2852L55.8724 30.2951C54.5562 31.6078 52.8054 32.3302 50.9402 32.3302C49.0751 32.3302 47.3242 31.6078 46.008 30.2951C43.2879 27.5823 43.2879 23.1701 46.008 20.4573L49.0261 17.4474C49.8342 16.6415 50.8015 16.0615 51.8973 15.7257L51.9524 15.7094L51.9728 15.6565C52.3238 14.7325 52.8584 13.9063 53.5625 13.2021L56.5805 10.1922C57.8967 8.87953 59.6476 8.15706 61.5127 8.15706C63.3779 8.15706 65.1287 8.87953 66.4449 10.1922C67.7612 11.5048 68.4856 13.251 68.4856 15.1111C68.4856 16.9712 67.7612 18.7193 66.4449 20.03V20.032Z"
+                      fill="CurrentColor"
+                    ></path>
+                    <path
+                      d="M28.1422 28.4126C27.8769 29.4424 27.7912 31.1946 26.4485 31.2455C26.3383 31.8398 26.8607 32.0636 27.3382 31.8723C27.8096 31.6566 28.034 32.0433 28.1932 32.4279C28.9217 32.5337 29.9992 32.1857 30.04 31.3249C28.9523 30.7001 28.6156 29.5116 28.1442 28.4106L28.1422 28.4126Z"
+                      fill="CurrentColor"
+                    ></path>
+                    <path
+                      d="M99.2089 10.8162H95.624V32.5623H111V29.0983H99.2089V10.8162Z"
+                      fill="CurrentColor"
+                    ></path>
+                    <path
+                      d="M129.021 32.5623H132.606V32.5236H132.653L132.66 32.364C132.661 32.3173 132.674 31.8821 132.608 31.2115V23.1182C132.608 20.0733 134.828 18.6871 136.891 18.6871C139.11 18.6871 140.19 19.8831 140.19 22.3445V32.5623H143.775V21.8674C143.775 17.8054 141.194 15.2812 137.041 15.2812C135.276 15.2812 133.701 15.7825 132.464 16.7351L132.431 15.5794H129.026V32.5623H129.021Z"
+                      fill="CurrentColor"
+                    ></path>
+                    <path
+                      d="M158.365 16.827C157.119 15.8147 155.517 15.2812 153.71 15.2812C148.876 15.2812 145.873 18.6146 145.873 23.9806C145.873 29.3466 148.876 32.7106 153.71 32.7106C155.415 32.7106 156.937 32.2464 158.136 31.363C158.033 33.9953 156.384 35.5588 153.681 35.5588C151.408 35.5588 150.122 34.8351 149.858 33.4085L149.825 33.2312L146.342 34.2935L146.373 34.4369C146.961 37.2722 149.614 38.9647 153.473 38.9647C156.091 38.9647 158.144 38.2523 159.577 36.8451C161.023 35.4266 161.755 33.3827 161.755 30.7715V15.5794H158.439L158.367 16.827H158.365ZM158.141 24.1305C158.141 27.3704 156.563 29.3063 153.918 29.3063C151.083 29.3063 149.458 27.3655 149.458 23.9822C149.458 20.5988 151.084 18.6871 153.918 18.6871C156.499 18.6871 158.115 20.6133 158.141 23.713V24.1305Z"
+                      fill="CurrentColor"
+                    ></path>
+                    <path
+                      d="M179.418 25.6665C178.675 28.0698 176.767 29.3948 174.047 29.3948C170.158 29.3948 167.74 26.4418 167.74 21.6884C167.74 16.9349 170.179 13.9819 174.107 13.9819C176.825 13.9819 178.391 15.0474 179.188 17.4346L179.56 18.5516L182.945 16.9623L182.627 16.0677C181.338 12.4361 178.361 10.5179 174.018 10.5179C171.067 10.5179 168.562 11.5834 166.773 13.5983C165.003 15.5938 164.066 18.3904 164.066 21.69C164.066 28.476 167.983 32.862 174.047 32.862C178.32 32.862 181.63 30.6263 182.9 26.8803L183.224 25.9228L179.747 24.601L179.416 25.6681L179.418 25.6665Z"
+                      fill="CurrentColor"
+                    ></path>
+                    <path
+                      d="M192.806 15.2812C191.094 15.2812 189.571 15.7503 188.375 16.6417V8.73212H184.79V32.5639H188.375V23.1199C188.375 20.0557 190.594 18.6598 192.658 18.6598C194.877 18.6598 195.957 19.8558 195.957 22.3171V32.5656H199.542V21.84C199.542 17.857 196.899 15.2845 192.808 15.2845L192.806 15.2812Z"
+                      fill="CurrentColor"
+                    ></path>
+                    <path
+                      d="M220.496 8.21954C219.164 8.21954 218.197 9.18668 218.197 10.5181C218.197 11.8495 219.164 12.8167 220.496 12.8167C221.827 12.8167 222.794 11.8495 222.794 10.5181C222.794 9.18668 221.827 8.21954 220.496 8.21954Z"
+                      fill="CurrentColor"
+                    ></path>
+                    <path
+                      d="M233.262 15.2812C231.497 15.2812 229.923 15.7825 228.686 16.7351L228.652 15.5794H225.248V32.5623H228.833V23.1182C228.833 20.0733 231.052 18.6871 233.116 18.6871C235.335 18.6871 236.415 19.8831 236.415 22.3445V32.5623H240V21.8674C240 17.8054 237.419 15.2812 233.266 15.2812H233.262Z"
+                      fill="CurrentColor"
+                    ></path>
+                    <path
+                      d="M222.237 15.5794H218.67V23.9984C217.68 23.1666 216.514 22.538 215.198 22.127V21.271C215.198 17.5202 212.736 15.2812 208.611 15.2812C205.26 15.2812 202.754 16.8545 201.733 19.5963L201.458 20.3361L204.332 22.4542L204.825 21.1695C205.475 19.4754 206.679 18.6856 208.611 18.6856C210.544 18.6856 211.613 19.6156 211.613 21.4483V21.5435C211.498 21.5386 211.382 21.5354 211.266 21.5338C207.428 21.4725 204.628 22.3704 202.944 24.1982C201.221 26.068 201.372 28.1683 201.395 28.4004L201.411 28.5616H201.427C201.695 31.1777 203.98 32.8573 207.301 32.8573C209.13 32.8573 210.82 32.348 212.098 31.4179L212.112 32.5607H215.198V27.2479L215.131 27.1996C214.695 26.8804 213.934 26.4678 212.789 26.3227C212.43 26.2776 212.087 26.255 211.771 26.2615H211.611V26.7499C211.611 27.8734 210.32 29.4546 207.448 29.4546C205.328 29.4546 205.012 28.5632 205.012 28.0313V27.9765C205.028 27.738 205.128 27.1544 205.655 26.6112C206.324 25.9197 207.83 25.1106 211.207 25.1622C213.652 25.2008 215.528 25.8843 216.784 27.1947C218.325 28.8034 218.615 31.0053 218.668 31.8676V32.5623H222.235V15.5794H222.237Z"
+                      fill="CurrentColor"
+                    ></path>
+                    <path
+                      d="M119.752 15.2071C116.401 15.2071 113.895 16.7803 112.874 19.5221L112.599 20.262L115.473 22.38L115.966 21.0953C116.616 19.4012 117.82 18.6114 119.752 18.6114C121.685 18.6114 122.754 19.5415 122.754 21.3742V21.8046L119.062 22.4558C114.734 23.2214 112.539 25.0719 112.539 27.9539C112.539 30.836 114.855 32.7832 118.44 32.7832C120.27 32.7832 121.959 32.2738 123.237 31.3437L123.252 32.4866H126.337V21.1969C126.337 17.446 123.875 15.2071 119.751 15.2071H119.752ZM122.754 25.1638V26.6773C122.754 27.8008 121.462 29.3821 118.59 29.3821C116.47 29.3821 116.155 28.4907 116.155 27.9588C116.155 27.4865 116.155 26.3807 119.91 25.6844L122.754 25.1654V25.1638Z"
+                      fill="CurrentColor"
+                    ></path>
+                  </svg>
+                  <p class="text-sm text-gray-300">LangChain</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+                    alt="Hugging Face"
+                  />
+                  <p class="text-sm text-gray-300">Hugging Face</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg"
+                    alt="IoT/Arduino"
+                  />
+                  <p class="text-sm text-gray-300">IoT/Arduino</p>
+                </div>
+                <div
+                  class="pcb-card rounded-xl p-4 flex flex-col items-center text-center hover:-translate-y-1 transition"
+                >
+                  <img
+                    class="h-12 w-12 mb-2"
+                    src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg"
+                    alt="PyTorch"
+                  />
+                  <p class="text-sm text-gray-300">PyTorch</p>
+                </div>
+              </div>
             </div>
-            
-            <div>
-              <h4 class="font-medium text-cyan-300">Chatbot/Virtual Assistant Developer</h4>
-              <ul class="list-disc list-inside text-gray-300 text-sm mt-1 space-y-1">
-                <li>Built scalable chatbot framework using Flask, Sklearn, NLTK, SpaCy</li>
-                <li>Designed preprocessing pipeline: spell correction, semantic analysis, lemmatization</li>
-                <li>Created omni-channel chatbot (WhatsApp, Slack, Facebook, Google Assistant, SMS)</li>
-                <li>Developed Alexa Skill with Salesforce & Ethereum blockchain integration</li>
-              </ul>
+          </div>
+
+          <!-- Navigation Arrows -->
+          <button
+            id="prevBtn"
+            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-slate-800/80 hover:bg-slate-700 rounded-full p-3 backdrop-blur transition z-10"
+          >
+            <i data-lucide="chevron-left" class="w-6 h-6 text-cyan-400"></i>
+          </button>
+          <button
+            id="nextBtn"
+            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-slate-800/80 hover:bg-slate-700 rounded-full p-3 backdrop-blur transition z-10"
+          >
+            <i data-lucide="chevron-right" class="w-6 h-6 text-cyan-400"></i>
+          </button>
+
+          <!-- Dots Indicator -->
+          <div class="flex justify-center gap-2 mt-6">
+            <button
+              class="carousel-dot w-2 h-2 rounded-full bg-cyan-400 transition"
+              data-slide="0"
+            ></button>
+            <button
+              class="carousel-dot w-2 h-2 rounded-full bg-gray-600 transition"
+              data-slide="1"
+            ></button>
+            <button
+              class="carousel-dot w-2 h-2 rounded-full bg-gray-600 transition"
+              data-slide="2"
+            ></button>
+            <button
+              class="carousel-dot w-2 h-2 rounded-full bg-gray-600 transition"
+              data-slide="3"
+            ></button>
+            <button
+              class="carousel-dot w-2 h-2 rounded-full bg-gray-600 transition"
+              data-slide="4"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <script>
+        // Tech Stack Carousel
+        (function () {
+          const carousel = document.getElementById("techCarousel");
+          const prevBtn = document.getElementById("prevBtn");
+          const nextBtn = document.getElementById("nextBtn");
+          const dots = document.querySelectorAll(".carousel-dot");
+          let currentSlide = 0;
+          const totalSlides = 5;
+          let autoplayInterval;
+
+          function goToSlide(n) {
+            currentSlide = (n + totalSlides) % totalSlides;
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // Update dots
+            dots.forEach((dot, index) => {
+              if (index === currentSlide) {
+                dot.classList.remove("bg-gray-600");
+                dot.classList.add("bg-cyan-400");
+              } else {
+                dot.classList.remove("bg-cyan-400");
+                dot.classList.add("bg-gray-600");
+              }
+            });
+
+            // Re-render Lucide icons for navigation buttons
+            lucide.createIcons();
+          }
+
+          function nextSlide() {
+            goToSlide(currentSlide + 1);
+          }
+
+          function prevSlide() {
+            goToSlide(currentSlide - 1);
+          }
+
+          // Event listeners
+          nextBtn.addEventListener("click", () => {
+            nextSlide();
+            resetAutoplay();
+          });
+
+          prevBtn.addEventListener("click", () => {
+            prevSlide();
+            resetAutoplay();
+          });
+
+          dots.forEach((dot) => {
+            dot.addEventListener("click", (e) => {
+              const slideIndex = parseInt(e.target.dataset.slide);
+              goToSlide(slideIndex);
+              resetAutoplay();
+            });
+          });
+
+          // Autoplay
+          function startAutoplay() {
+            autoplayInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
+          }
+
+          function resetAutoplay() {
+            clearInterval(autoplayInterval);
+            startAutoplay();
+          }
+
+          // Start autoplay on load
+          startAutoplay();
+
+          // Pause autoplay on hover
+          carousel.parentElement.addEventListener("mouseenter", () => {
+            clearInterval(autoplayInterval);
+          });
+
+          carousel.parentElement.addEventListener("mouseleave", () => {
+            startAutoplay();
+          });
+        })();
+      </script>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <div class="max-w-7xl mx-auto px-6 py-16">
+        <h2 class="text-3xl font-semibold text-cyan-400 mb-8">Experience</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <article class="pcb-card rounded-2xl p-6">
+            <h3 class="text-xl font-semibold text-green-400">
+              Member of Technical Staff @ AMD
+            </h3>
+            <p class="text-sm text-gray-400">Sept 2023 – Present</p>
+
+            <div class="mt-4 space-y-3">
+              <div>
+                <h4 class="font-medium text-cyan-300">
+                  Platform Architecture & Scalability
+                </h4>
+                <ul
+                  class="list-disc list-inside text-gray-300 text-sm mt-1 space-y-1"
+                >
+                  <li>
+                    Co-architected <strong>PRISM Automation Platform</strong> —
+                    distributed event-driven system processing
+                    <strong>1M+ log entries</strong> for silicon, BIOS, and
+                    memory validation with autonomous BMC debug data collection
+                  </li>
+                  <li>
+                    Scaled validation capacity
+                    <strong>6.25× (32 → 200+ concurrent runs)</strong> through
+                    global edge infrastructure across 5 sites, reducing cycle
+                    time by 35% and latency by 40%
+                  </li>
+                  <li>
+                    Engineered <strong>Station Descriptor service</strong> —
+                    core configuration management powering intelligent hardware
+                    search and workload orchestration across 200+ stations
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-medium text-cyan-300">
+                  AI/ML & Intelligent Systems
+                </h4>
+                <ul
+                  class="list-disc list-inside text-gray-300 text-sm mt-1 space-y-1"
+                >
+                  <li>
+                    Leading <strong>PRISM AI initiative</strong> — multi-agent
+                    system with LLM-powered conversational interface, RAG
+                    pipelines, vector database triage (50% faster debug), and
+                    knowledge graph-based log intelligence
+                  </li>
+                  <li>
+                    Built <strong>Azure Cosmos DB knowledge graph</strong> with
+                    custom prismai library, transforming log analysis from hours
+                    to minutes
+                  </li>
+                  <li>
+                    Co-developed
+                    <strong>Intelligent Routing Engine</strong> using Kubernetes
+                    orchestration, cutting queue time by 40% and doubling
+                    resource efficiency
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-medium text-cyan-300">
+                  Cloud Engineering, DevOps & Data Analytics
+                </h4>
+                <ul
+                  class="list-disc list-inside text-gray-300 text-sm mt-1 space-y-1"
+                >
+                  <li>
+                    Architected <strong>end-to-end CI/CD pipeline</strong> with
+                    automated security scanning (SonarQube, Trivy, OWASP),
+                    reducing deployment failures by 70% and enabling 50+ safe
+                    weekly releases with quality gates and rollback capabilities
+                  </li>
+                  <li>
+                    Led
+                    <strong>Azure DevOps → GitHub Actions migration</strong>,
+                    improving build parallelism by 3× and cutting deployment
+                    time by 67% (45→15 minutes) through optimized workflow
+                    orchestration
+                  </li>
+                  <li>
+                    Built
+                    <strong>real-time analytics dashboard</strong> tracking
+                    config utilization, availability, and demand — improving
+                    resource efficiency by 45% and enabling predictive capacity
+                    planning
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-medium text-cyan-300">
+                  Technical Leadership & Team Development
+                </h4>
+                <ul
+                  class="list-disc list-inside text-gray-300 text-sm mt-1 space-y-1"
+                >
+                  <li>
+                    Co-led
+                    <strong
+                      >Core Validation team onboarding to PRISM platform</strong
+                    >, accelerating adoption by 40% through comprehensive
+                    training programs and hands-on workshops
+                  </li>
+                  <li>
+                    Mentoring engineers on
+                    <strong
+                      >cloud migration strategies, Kubernetes
+                      deployments</strong
+                    >
+                    (n8n, NocoDB alerting systems), and distributed systems
+                    architecture patterns
+                  </li>
+                </ul>
+              </div>
             </div>
-            
-            <div>
-              <h4 class="font-medium text-cyan-300">Technology Lead</h4>
-              <ul class="list-disc list-inside text-gray-300 text-sm mt-1 space-y-1">
-                <li>Led 4-member team building chatbot development platform</li>
-                <li>Architected containerized deployment framework (Docker, Redis, RabbitMQ)</li>
-                <li>Implemented monitoring stack (Kibana/Logstash/Grafana) for logging & alerts</li>
-                <li>Managed agile processes, sprint planning, and cross-team collaboration</li>
-              </ul>
+          </article>
+          <article class="pcb-card rounded-2xl p-6">
+            <h3 class="text-xl font-semibold text-green-400">
+              Assistant General Manager @ Infinity Learn
+            </h3>
+            <p class="text-sm text-gray-400">July 2021 – Sept 2023</p>
+            <ul class="list-disc list-inside text-gray-300 mt-3 space-y-1">
+              <li>
+                Led product management and technical transition of
+                <strong>WizKlub Futurz program</strong> following acquisition,
+                ensuring seamless integration of learning platform and
+                curriculum delivery systems.
+              </li>
+              <li>
+                Architected and deployed <strong>VISTA</strong> — Generative AI
+                application leveraging LLM technology to provide interactive,
+                conversational responses to student queries on NCERT Science
+                topics with contextual accuracy.
+              </li>
+              <li>
+                Directed <strong>ML engineering team</strong> in research and
+                development of custom domain-specific LLMs for solving advanced
+                Physics, Chemistry, and Mathematics problems tailored for IIT
+                JEE preparation.
+              </li>
+              <li>
+                Pioneered
+                <strong>AI-driven auto-evaluation framework</strong> for
+                Blockly-based coding assessments, using Generative AI to analyze
+                student code logic, assign scores, and generate detailed
+                justifications for automated feedback at scale.
+              </li>
+            </ul>
+          </article>
+          <article class="pcb-card rounded-2xl p-6">
+            <h3 class="text-xl font-semibold text-green-400">
+              Chief Architect @ WizKlub Learning Pvt. Ltd.
+            </h3>
+            <p class="text-sm text-gray-400">May 2021 – June 2023</p>
+            <ul class="list-disc list-inside text-gray-300 mt-3 space-y-1">
+              <li>
+                Led
+                <strong>20+ member cross-functional engineering team</strong>,
+                orchestrating agile release cycles and delivering weekly/monthly
+                product milestones for K-12 adaptive learning platform.
+              </li>
+              <li>
+                Architected
+                <strong>enterprise-grade AWS cloud infrastructure</strong>
+                integrating Lambda, IoT Core, ELK stack, and multiple AWS
+                services while optimizing for cost efficiency, security, and
+                performance.
+              </li>
+              <li>
+                Championed <strong>DevSecOps transformation</strong> by
+                embedding automated security and quality gates (JMeter,
+                SonarQube) into CI/CD pipelines, reducing vulnerabilities and
+                accelerating time-to-market.
+              </li>
+              <li>
+                Designed and deployed
+                <strong>highly customizable LMS platform</strong> serving
+                WizKlub's core curriculum with intuitive content management and
+                adaptive learning workflows.
+              </li>
+              <li>
+                Pioneered
+                <strong>no-code Alexa Skills builder</strong> leveraging AWS
+                Lambda, Alexa Skills Kit, and Google Blockly to democratize
+                voice app development through drag-and-drop interfaces.
+              </li>
+              <li>
+                Engineered <strong>IoT middleware framework</strong> bridging
+                WizKlub hardware devices with AWS IoT Core using Blockly-based
+                visual programming for seamless device onboarding and control.
+              </li>
+              <li>
+                Implemented
+                <strong>comprehensive observability stack</strong> with AWS
+                CodeCommit for version control and ELK for real-time monitoring,
+                logging, and performance analytics.
+              </li>
+            </ul>
+          </article>
+          <article class="pcb-card rounded-2xl p-6">
+            <h3 class="text-xl font-semibold text-green-400">
+              Multiple Roles @ Cognizant
+            </h3>
+            <p class="text-sm text-gray-400">Nov 2016 – May 2021</p>
+
+            <div class="mt-4 space-y-3">
+              <div>
+                <h4 class="font-medium text-cyan-300">Data Scientist</h4>
+                <ul
+                  class="list-disc list-inside text-gray-300 text-sm mt-1 space-y-1"
+                >
+                  <li>
+                    Developed automated data collection framework from
+                    enterprise systems & databases
+                  </li>
+                  <li>
+                    Built ML-based sales forecasting models achieving 87%
+                    accuracy across regions
+                  </li>
+                  <li>
+                    Created CNN-based text extraction from images with automated
+                    ML wrapper
+                  </li>
+                  <li>
+                    Implemented employee attrition prediction models for
+                    workforce planning
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-medium text-cyan-300">
+                  Chatbot/Virtual Assistant Developer
+                </h4>
+                <ul
+                  class="list-disc list-inside text-gray-300 text-sm mt-1 space-y-1"
+                >
+                  <li>
+                    Built scalable chatbot framework using Flask, Sklearn, NLTK,
+                    SpaCy
+                  </li>
+                  <li>
+                    Designed preprocessing pipeline: spell correction, semantic
+                    analysis, lemmatization
+                  </li>
+                  <li>
+                    Created omni-channel chatbot (WhatsApp, Slack, Facebook,
+                    Google Assistant, SMS)
+                  </li>
+                  <li>
+                    Developed Alexa Skill with Salesforce & Ethereum blockchain
+                    integration
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-medium text-cyan-300">Technology Lead</h4>
+                <ul
+                  class="list-disc list-inside text-gray-300 text-sm mt-1 space-y-1"
+                >
+                  <li>
+                    Led 4-member team building chatbot development platform
+                  </li>
+                  <li>
+                    Architected containerized deployment framework (Docker,
+                    Redis, RabbitMQ)
+                  </li>
+                  <li>
+                    Implemented monitoring stack (Kibana/Logstash/Grafana) for
+                    logging & alerts
+                  </li>
+                  <li>
+                    Managed agile processes, sprint planning, and cross-team
+                    collaboration
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-medium text-cyan-300">R&D Engineer</h4>
+                <ul
+                  class="list-disc list-inside text-gray-300 text-sm mt-1 space-y-1"
+                >
+                  <li>
+                    Explored blockchain networks and built enterprise solutions
+                    on top
+                  </li>
+                  <li>
+                    Developed AR application using Unity, Vuforia, 3DS Max for
+                    information augmentation
+                  </li>
+                  <li>
+                    Created IoT-based product authentication for supply chain
+                    (Particle Photon, Ethereum)
+                  </li>
+                  <li>
+                    Integrated ML analytics for real-time product status
+                    monitoring & alerting
+                  </li>
+                </ul>
+              </div>
             </div>
-            
-            <div>
-              <h4 class="font-medium text-cyan-300">R&D Engineer</h4>
-              <ul class="list-disc list-inside text-gray-300 text-sm mt-1 space-y-1">
-                <li>Explored blockchain networks and built enterprise solutions on top</li>
-                <li>Developed AR application using Unity, Vuforia, 3DS Max for information augmentation</li>
-                <li>Created IoT-based product authentication for supply chain (Particle Photon, Ethereum)</li>
-                <li>Integrated ML analytics for real-time product status monitoring & alerting</li>
-              </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patents -->
+    <section id="patents" class="section">
+      <div class="max-w-7xl mx-auto px-6 py-16">
+        <h2 class="text-3xl font-semibold text-cyan-400 mb-8">
+          Patents & Awards
+        </h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="pcb-card rounded-2xl p-6">
+            <div class="flex items-center gap-3">
+              <i data-lucide="book-open" class="w-6 h-6 text-green-400"></i>
+              <h3 class="font-semibold">US 2022/0005263 A1</h3>
+            </div>
+            <p class="text-sm text-gray-400 mt-1">
+              Automated Data Visualization & Modification (2022)
+            </p>
+          </div>
+          <div class="pcb-card rounded-2xl p-6">
+            <div class="flex items-center gap-3">
+              <i data-lucide="book-open" class="w-6 h-6 text-green-400"></i>
+              <h3 class="font-semibold">US 2022/0141022 A1</h3>
+            </div>
+            <p class="text-sm text-gray-400 mt-1">
+              Securing & Authenticating Serialized Data (2022)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards" class="section">
+      <div class="max-w-7xl mx-auto px-6 py-16">
+        <h2 class="text-3xl font-semibold text-cyan-400 mb-8">
+          Awards & Recognition
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- AMD Awards -->
+          <div class="pcb-card rounded-2xl p-6">
+            <div class="flex items-start gap-3">
+              <i
+                data-lucide="trophy"
+                class="w-8 h-8 text-yellow-400 flex-shrink-0"
+              ></i>
+              <div>
+                <h3 class="font-semibold text-green-400">
+                  Spotlight Award (6×)
+                </h3>
+                <p class="text-xs text-gray-500 mt-1">Advanced Micro Devices</p>
+                <p class="text-sm text-gray-300 mt-2">
+                  Exceptional contributions to PRISM platform architecture, AI
+                  initiatives, and technical leadership
+                </p>
+              </div>
             </div>
           </div>
-        </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- Patents -->
-  <section id="patents" class="section">
-    <div class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-3xl font-semibold text-cyan-400 mb-8">Patents & Awards</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="pcb-card rounded-2xl p-6">
-          <div class="flex items-center gap-3">
-            <i data-lucide="book-open" class="w-6 h-6 text-green-400"></i>
-            <h3 class="font-semibold">US 2022/0005263 A1</h3>
+          <div class="pcb-card rounded-2xl p-6">
+            <div class="flex items-start gap-3">
+              <i
+                data-lucide="zap"
+                class="w-8 h-8 text-orange-400 flex-shrink-0"
+              ></i>
+              <div>
+                <h3 class="font-semibold text-green-400">Hero Award</h3>
+                <p class="text-xs text-gray-500 mt-1">Advanced Micro Devices</p>
+                <p class="text-sm text-gray-300 mt-2">
+                  Building Intelligent Routing solution achieving 2× system
+                  utilization improvement
+                </p>
+              </div>
+            </div>
           </div>
-          <p class="text-sm text-gray-400 mt-1">Automated Data Visualization & Modification (2022)</p>
-        </div>
-        <div class="pcb-card rounded-2xl p-6">
-          <div class="flex items-center gap-3">
-            <i data-lucide="book-open" class="w-6 h-6 text-green-400"></i>
-            <h3 class="font-semibold">US 2022/0141022 A1</h3>
+
+          <!-- Infinity Learn Award -->
+          <div class="pcb-card rounded-2xl p-6">
+            <div class="flex items-start gap-3">
+              <i
+                data-lucide="trending-up"
+                class="w-8 h-8 text-green-400 flex-shrink-0"
+              ></i>
+              <div>
+                <h3 class="font-semibold text-green-400">Growth Champion</h3>
+                <p class="text-xs text-gray-500 mt-1">Infinity Learn</p>
+                <p class="text-sm text-gray-300 mt-2">
+                  Recognized for exceptional leadership potential and
+                  future-readiness
+                </p>
+              </div>
+            </div>
           </div>
-          <p class="text-sm text-gray-400 mt-1">Securing & Authenticating Serialized Data (2022)</p>
-        </div>
-        <div class="pcb-card rounded-2xl p-6">
-          <div class="flex items-center gap-3">
-            <i data-lucide="award" class="w-6 h-6 text-green-400"></i>
-            <h3 class="font-semibold">Awards & Recognition</h3>
+
+          <!-- Cognizant Awards -->
+          <div class="pcb-card rounded-2xl p-6">
+            <div class="flex items-start gap-3">
+              <i
+                data-lucide="book-open"
+                class="w-8 h-8 text-blue-400 flex-shrink-0"
+              ></i>
+              <div>
+                <h3 class="font-semibold text-green-400">
+                  Knowledge Stalwart Award
+                </h3>
+                <p class="text-xs text-gray-500 mt-1">Cognizant Academy</p>
+                <p class="text-sm text-gray-300 mt-2">
+                  Excellence in knowledge sharing, technical mentorship, and
+                  community building
+                </p>
+              </div>
+            </div>
           </div>
-          <ul class="text-sm text-gray-400 list-disc list-inside mt-2 space-y-1">
-            <li>Knowledge Stalwart Award – Cognizant Academy</li>
-            <li>Rising Star Award – Rapid Impact</li>
-            <li>Orbit Shifter Award – Top 2% in Coding Assessment</li>
-            <li>Leadership Recognition – Maker Sessions across India</li>
-          </ul>
+
+          <div class="pcb-card rounded-2xl p-6">
+            <div class="flex items-start gap-3">
+              <i
+                data-lucide="star"
+                class="w-8 h-8 text-purple-400 flex-shrink-0"
+              ></i>
+              <div>
+                <h3 class="font-semibold text-green-400">Rising Star Award</h3>
+                <p class="text-xs text-gray-500 mt-1">Cognizant</p>
+                <p class="text-sm text-gray-300 mt-2">
+                  Outstanding performance and rapid business impact delivery
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pcb-card rounded-2xl p-6">
+            <div class="flex items-start gap-3">
+              <i
+                data-lucide="code"
+                class="w-8 h-8 text-cyan-400 flex-shrink-0"
+              ></i>
+              <div>
+                <h3 class="font-semibold text-green-400">
+                  Orbit Shifter Award
+                </h3>
+                <p class="text-xs text-gray-500 mt-1">Cognizant</p>
+                <p class="text-sm text-gray-300 mt-2">
+                  Top 2% performance in company-wide coding assessment
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Awards -->
-  <section id="awards" class="section">
-    <div class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-3xl font-semibold text-cyan-400 mb-8">Awards</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="pcb-card rounded-2xl p-6">
-          <div class="flex items-center gap-3">
-            <i data-lucide="award" class="w-6 h-6 text-green-400"></i>
-            <h3 class="font-semibold">Awards & Recognition</h3>
-          </div>
-          <ul class="text-sm text-gray-400 list-disc list-inside mt-2 space-y-1">
-            <li>Knowledge Stalwart Award – Cognizant Academy</li>
-            <li>Rising Star Award – Rapid Impact</li>
-            <li>Orbit Shifter Award – Top 2% in Coding Assessment</li>
-            <li>Leadership Recognition – Maker Sessions across India</li>
-          </ul>
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="max-w-7xl mx-auto px-6 py-20 text-center">
+        <h2 class="text-3xl font-semibold text-cyan-400 mb-4">Let's Connect</h2>
+        <p class="text-gray-400 mb-6">
+          Open to collaborations, speaking engagements, and open-source
+          projects.
+        </p>
+        <div class="flex gap-6 justify-center">
+          <a
+            href="https://github.com/shubamgupta8"
+            target="_blank"
+            class="chip inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm hover:bg-white/5"
+            ><i data-lucide="github" class="w-5 h-5"></i> GitHub</a
+          >
+          <a
+            href="https://linkedin.com/in/shubamgupta8"
+            target="_blank"
+            class="chip inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm hover:bg-white/5"
+            ><i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn</a
+          >
+          <a
+            href="mailto:shubamgupta8@gmail.com"
+            class="chip inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm hover:bg-white/5"
+            ><i data-lucide="mail" class="w-5 h-5"></i> Email</a
+          >
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <div class="max-w-7xl mx-auto px-6 py-20 text-center">
-      <h2 class="text-3xl font-semibold text-cyan-400 mb-4">Let's Connect</h2>
-      <p class="text-gray-400 mb-6">Open to collaborations, speaking engagements, and open-source projects.</p>
-      <div class="flex gap-6 justify-center">
-        <a href="https://github.com/shubamgupta8" target="_blank" class="chip inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm hover:bg-white/5"><i data-lucide="github" class="w-5 h-5"></i> GitHub</a>
-        <a href="https://linkedin.com/in/shubamgupta8" target="_blank" class="chip inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm hover:bg-white/5"><i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn</a>
-        <a href="mailto:shubamgupta8@gmail.com" class="chip inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm hover:bg-white/5"><i data-lucide="mail" class="w-5 h-5"></i> Email</a>
-      </div>
-    </div>
-  </section>
+    <footer class="py-10 text-center text-xs text-gray-500/80">
+      © <span id="year"></span> Shubam Gupta.
+    </footer>
 
-  <footer class="py-10 text-center text-xs text-gray-500/80">
-    © <span id="year"></span> Shubam Gupta.
-  </footer>
-
-  <script>
-    // Render Lucide icons
-    lucide.createIcons();
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
+    <script>
+      // Render Lucide icons
+      lucide.createIcons();
+      // Footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
